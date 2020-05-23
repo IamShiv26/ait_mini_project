@@ -31,50 +31,37 @@
         font-weight: bold;
     }
 </style>
-
+<script>
+    $(document).ready(function(){
+        var email,pass;
+        $("#submit").click(function(){
+            email=$("#email").val();
+            pass=$("#password").val();
+            /*
+            * Perform some validation here.
+            */
+            $.post("/auth/login",{email:email,pass:pass},function(data){
+                if(data==='done') {
+                    window.location.href="/index";
+                }
+            });
+        });
+    });
+    </script>
 </head>
 <body>
 <div class="login-form">
         <h2 class="text-center">Log in</h2>       
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Email" required="required" name="email" id="login_email">
+            <input type="text" class="form-control" placeholder="Email" required="required" name="email" id="email">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required="required" name="password" id="login_password">
+            <input type="password" class="form-control" placeholder="Password" required="required" name="password" id="password">
         </div>
         <div class="form-group">
-            <button type="button" class="btn btn-primary btn-block" id="login">Log in</button>
+            <button type="submit" class="btn btn-primary btn-block" id="submit">Log in</button>
         </div>       
     <p class="text-center"><a href="/register">Create an Account</a></p>
 </div>
-<script>
-    function getData(ajaxurl, method, body) { 
-        return $.ajax({
-            url: ajaxurl,
-            type: method,
-            contentType: 'application/json',
-            data: JSON.stringify(body)
-        });
-      };
-    $("#login").click(async e => {
-        console.log('Clicked')
-        const email = $("#login_email").val();
-        const password = $("#login_password").val(); 
-        $("#login_email").val("");
-        $("#login_password").val(""); 
-          const body = {
-              email: email,
-              password: password
-          }
-          console.log(body);
-          const result = await getData('/auth/login', 'POST', body);
-          if(result.success) {
-              alert('logged in successfully');
-              window.location = "/index";
-          } else {
-              alert(`Error! ${result.message}`);
-          }
-      })
-    </script>
 </body>
 </html>                                		                            

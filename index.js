@@ -1,10 +1,19 @@
+require('./models/db');
 const express = require('express');
 const app = express();
 const path = require('path');
 const fs = require('fs');
 const bp = require('body-parser');
 const cp = require('cookie-parser');
+const ejs = require('ejs');
+const session = require('express-session');
 
+app.set('views',path.join(__dirname,'views'));
+app.set('view engine','ejs');
+
+app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
+app.use(bp.json());
+app.use(bp.urlencoded({extended:false}));
 
 app.use(express.static('public'));
 
