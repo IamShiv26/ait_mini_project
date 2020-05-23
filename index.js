@@ -11,7 +11,7 @@ app.use(express.static('public'));
 app.use(bp.json());
 app.use(cp());
 
-app.use('/blog', require('./routes/blogHandler'));
+//app.use('/blog', require('./routes/blogHandler'));
 app.use('/auth', require('./routes/authHandler'));
 app.get('/index', (req, res) => {
     // console.log(path.join(__dirname, 'public','index.html'));
