@@ -1,5 +1,6 @@
 const express = require('express');
 const session = require('express-session');
+const { check, validationResult } = require('express-validator');
 const fs = require('fs');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
@@ -38,13 +39,54 @@ router.post('/login', async(req, res) => {
     // }
 });
 
-router.get('/logout', (req, res) => {
-    req.session.destroy((err) => {
-        if(err) {
-            return console.log(err);
+router.post('/register',[
+    check('username','Cannot be empty').notEmpty(),
+    check('email','Invalid Email').isEmail(),
+    check('pass','Password should be minimum 5 characters').isLength({min:5}),
+    check('cpass').custom((value,{req}) =>{
+        console.log(value+"-"+req.body.pass);
+        if (value !== req.body.pass) {
+            throw new Error('Passwords do not match');
         }
-        res.redirect('/index');
+    })
+],(req,res) => {
+    const errors = validationResult(req);
+    console.log(errors.mapped());
+    var user = new User();
+    user.username = req.body.username;
+    user.email = req.body.email;
+    var password = req.body.pass;
+    let hashed_password = bcrypt.hashSync(password, 10);
+    user.password = hashed_password;
+    user.fullname = req.body.username;
+    user.phone = '';
+    user.profession = '';
+    user.save((err,doc) => {
+        if(!err)
+            res.end('done');
+        //else{
+            // if(err.name == 'ValidationError'){
+            //     handleValidationError(err,req.body);
+            //     res.render("student/form",{
+            //         viewTitle: "Insert Student",
+            //         student: req.body
+            //     });
+            // }
+            // else
+            //     console.log('Error during saving records');
+        //}
     });
+    //res.app.set('user_details', data);
+});
+
+router.get('/logout', (req, res) => {
+    // req.session.destroy((err) => {
+    //     if(err) {
+    //         return console.log(err);
+    //     }
+    //     res.redirect('/index');
+    // });
+    res.clearCookie("email").redirect('/index');
 });
 
 module.exports = router;

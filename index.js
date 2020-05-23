@@ -22,6 +22,9 @@ app.use(cp());
 
 //app.use('/blog', require('./routes/blogHandler'));
 app.use('/auth', require('./routes/authHandler'));
+app.use('/profilepage', require('./routes/profile'));
+
+
 app.get('/index', (req, res) => {
     // console.log(path.join(__dirname, 'public','index.html'));
     res.status(200).sendFile(path.join(__dirname, 'public','index.html'));
@@ -57,6 +60,14 @@ app.get('/loginpage', (req, res) => {
     // console.log(path.join(__dirname, 'public','index.html'));
     res.status(200).sendFile(path.join(__dirname, 'public','login.html'));
 })
+
+app.get('/registerpage',(req,res) => {
+    res.render('register',{error:{}});
+});
+
+// app.get('/profilepage',(req,res) => {
+//     res.render('profile',{error:{}});
+// });
 
 // app.get('/loginsignup', (req, res) => {
 //     // console.log(path.join(__dirname, 'public','index.html'));

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Simple Login Form</title>
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/themify-icons.css">
+<link rel="stylesheet" href="css/nice-select.css">
+<link rel="stylesheet" href="css/flaticon.css">
+<link rel="stylesheet" href="css/gijgo.css">
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/slicknav.css">
+
+<link rel="stylesheet" href="css/style.css">
+<style type="text/css">
+	body{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+}
+.emp-profile{
+    padding: 3%;
+    margin-top: 10%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+/* .profile-img{
+    text-align: center;
+} */
+.profile-img img{
+    width: 70%;
+    height: 100%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color: #0062cc;
+}
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+.proile-rating span{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #0062cc;
+}
+.profile-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.profile-work p{
+    font-size: 12px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.profile-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 600;
+}
+.profile-tab input{
+    font-weight: 600;
+    color: #0062cc;
+}
+/* #prof_pic{
+    padding-top: 10px
+} */
+</style>
+<script>
+    $(document).ready(function(){
+    $("#save").hide();  
+    $("#image_in").hide();
+    $("#prof_pic").hide();
+    $(".profile-edit-btn").click(function(){
+        $('#username_in').removeAttr("readonly");
+        $('#fullname_in').removeAttr("readonly");
+        $('#phone_in').removeAttr("readonly");
+        $('#profession_in').removeAttr("readonly");
+        $("#image_in").show();
+        $("#save").show();
+        $("#prof_pic").show();
+    });
+});
+</script>
+</head>
+<body>
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid ">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-2">
+                                <div class="logo">
+                                    <a href="/index">
+                                        <img src="img/logo.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-7">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/index">home</a></li>
+                                            <li><a href="/jobs">Browse Job</a></li>
+                                            <!-- <li><a href="#">pages <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a href="/candidate">Candidates </a></li>
+                                                    <li><a href="/job_details">job details </a></li>
+                                                    <li><a href="/elements">elements</a></li>
+                                                </ul>
+                                            </li> -->
+                                            <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a href="/blog/multi-blog">blog</a></li>
+                                                    <li><a href="/blog/single-blog">single-blog</a></li>
+                                                </ul>
+                                            </li> -->
+                                            <li><a href="/contact">Contact</a></li>
+                                            <!-- <li><a href="/">Facebook Login</a></li> -->
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                                <div class="Appointment">
+                                    <div class="phone_num d-none d-xl-block" >
+                                        <a href="/loginpage" id='login'>Log in</a>
+                                    </div>
+                                    <div class="phone_num d-none d-xl-block" >
+                                        <a href="/auth/logout" id='logout'>Log Out</a>
+                                    </div>
+                                    <div class="d-none d-lg-block">
+                                        <a class="boxed-btn3" id="register" >Register</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container emp-profile">
+        <!-- <form method="post"> -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                    </div>
+                    <!-- <div id="image_in">
+                        <form action="/profile/imgupload" enctype="multipart/form-data" method="POST">
+                            <div style="padding-top: 20px;padding-left: 17px;" class="form-group row">                   
+                                <input type="file" id="singleImage" name="singleImage">
+                            </div>
+                            <button type="submit" class="btn btn-success" id="prof_pic" >Save profile picture</button>
+                        </form>   
+                    </div> -->
+                </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                                <h5>
+                                    <%= user_details.fullname %>
+                                </h5>
+                                <h6>
+                                    <%= user_details.profession %>
+                                </h6>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <input type="button" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-work">
+                        <p>SKILLS</p>
+                        <a href="">Web Designer</a><br/>
+                        <a href="">Web Developer</a><br/>
+                        <a href="">WordPress</a><br/>
+                        <a href="">WooCommerce</a><br/>
+                        <a href="">PHP, .Net</a><br/>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <form action="/profilepage" method="POST">
+                                <div class="form-group row">                   
+                                    <label for="username_in" class="col-md-6 col-form-label">Username</label>
+                                    <div class="col-md-6">
+                                        <input type="text" readonly class="form-control-plaintext" id="username_in" value="<%= user_details.username %>" name="username">
+                                    </div>
+                                </div>
+                                <div class="form-group row">                   
+                                    <label for="fullname_in" class="col-md-6 col-form-label">Name</label>
+                                    <div class="col-md-6">
+                                        <input type="text" readonly class="form-control-plaintext" id="fullname_in" value="<%= user_details.fullname %>" name="fullname">
+                                    </div>
+                                </div>
+                                <div class="form-group row">                   
+                                    <label for="email_in" class="col-md-6 col-form-label">Email</label>
+                                    <div class="col-md-6">
+                                        <input type="text" readonly class="form-control-plaintext" id="email_in" value="<%= user_details.email %>" name="email">
+                                    </div>
+                                </div>
+                                <div class="form-group row">                   
+                                    <label for="phone_in" class="col-md-6 col-form-label">Phone</label>
+                                    <div class="col-md-6">
+                                        <input type="text" style="color:#0062cc" readonly class="form-control-plaintext" id="phone_in" value="<%= user_details.phone %>" name="phone" placeholder="Your mobile no goes here..">
+                                    </div>
+                                </div>
+                                <div class="form-group row">                   
+                                    <label for="profession_in" class="col-md-6 col-form-label">Profession</label>
+                                    <div class="col-md-6">
+                                        <input type="text" style="color:#0062cc" readonly class="form-control-plaintext" id="profession_in" value="<%= user_details.profession %>" name="profession" placeholder="Your profession goes here..">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="save">Save Details</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- </form>            -->
+    </div>
+    <script>
+        const cookie = document.cookie;
+        console.log('Coo'+cookie);
+        if(cookie==="")
+        {
+            $('#logout').hide();
+            $('#login').show();
+            $('#register').show();
+            $('#register').html("register");
+            $("#register").attr("href", "/registerpage");
+        }
+        else{
+            $('#logout').show();
+            $('#login').hide();
+            $('#register').html("Profile");
+            $("#register").attr("href", "/profilepage");
+        }
+    </script>
+</body>
+</html>                                		                            
