@@ -23,6 +23,9 @@ app.use(cp());
 //app.use('/blog', require('./routes/blogHandler'));
 app.use('/auth', require('./routes/authHandler'));
 app.use('/profilepage', require('./routes/profile'));
+app.use('/jobs', require('./routes/jobs'));
+app.use('/jobHandler', require('./routes/jobHandler'));
+app.use('/job_details',require('./routes/individualJobHandler'));
 
 
 app.get('/index', (req, res) => {
@@ -49,11 +52,6 @@ app.get('/elements', (req, res) => {
 app.get('/job_details', (req, res) => {
     // console.log(path.join(__dirname, 'public','index.html'));
     res.status(200).sendFile(path.join(__dirname, 'public','job_details.html'));
-})
-
-app.get('/jobs', (req, res) => {
-    // console.log(path.join(__dirname, 'public','index.html'));
-    res.status(200).sendFile(path.join(__dirname, 'public','jobs.html'));
 })
 
 app.get('/loginpage', (req, res) => {

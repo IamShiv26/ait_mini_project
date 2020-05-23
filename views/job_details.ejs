@@ -99,7 +99,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text">
-                        <h3>Software Engineer</h3>
+                        <h3><%= job_profile.job_title %></h3>
                     </div>
                 </div>
             </div>
@@ -118,13 +118,13 @@
                                     <img src="img/svg_icon/1.svg" alt="">
                                 </div>
                                 <div class="jobs_conetent">
-                                    <a href="#"><h4>Software Engineer</h4></a>
+                                    <a href="#"><h4><%= job_profile.job_title %></h4></a>
                                     <div class="links_locat d-flex align-items-center">
                                         <div class="location">
-                                            <p> <i class="fa fa-map-marker"></i> California, USA</p>
+                                            <p> <i class="fa fa-map-marker"></i><%= job_profile.location %></p>
                                         </div>
                                         <div class="location">
-                                            <p> <i class="fa fa-clock-o"></i> Part-time</p>
+                                            <p> <i class="fa fa-clock-o"></i> <%= job_profile.job_nature %></p>
                                         </div>
                                     </div>
                                 </div>
@@ -139,8 +139,7 @@
                     <div class="descript_wrap white-bg">
                         <div class="single_wrap">
                             <h4>Job description</h4>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing.</p>
-                            <p>Variations of passages of lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing.</p>
+                            <p><%= job_profile.description %></p>
                         </div>
                         <div class="single_wrap">
                             <h4>Responsibility</h4>
@@ -169,38 +168,39 @@
                     </div>
                     <div class="apply_job_form white-bg">
                         <h4>Apply for the job</h4>
-                        <form action="#">
+                        <form action="/job_details/upload" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="input_field">
-                                        <input type="text" placeholder="Your name">
+                                        <input type="text" placeholder="Your name" value="<%= user_profile.fullname %>" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input_field">
-                                        <input type="text" placeholder="Email">
+                                        <input type="text" placeholder="Email" value="<%= user_profile.email %>" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="input_field">
-                                        <input type="text" placeholder="Website/Portfolio link">
+                                        <input type="text" placeholder="Website/Portfolio link" name="portfolio_link">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
+                                    <%= typeof(msg) != 'undefined' ? msg : "" %>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                           <button type="button" id="inputGroupFileAddon03"><i class="fa fa-cloud-upload" aria-hidden="true"></i>
                                           </button>
                                         </div>
                                         <div class="custom-file">
-                                          <input type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
+                                          <input type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" name='resume_upload'>
                                           <label class="custom-file-label" for="inputGroupFile03">Upload CV</label>
                                         </div>
                                       </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="input_field">
-                                        <textarea name="#" id="" cols="30" rows="10" placeholder="Coverletter"></textarea>
+                                        <input type="text" placeholder="Coverletter" name='coverletter'>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -215,15 +215,14 @@
                 <div class="col-lg-4">
                     <div class="job_sumary">
                         <div class="summery_header">
-                            <h3>Job Summery</h3>
+                            <h3>Job Summary</h3>
                         </div>
                         <div class="job_content">
                             <ul>
-                                <li>Published on: <span>12 Nov, 2019</span></li>
-                                <li>Vacancy: <span>2 Position</span></li>
-                                <li>Salary: <span>50k - 120k/y</span></li>
-                                <li>Location: <span>California, USA</span></li>
-                                <li>Job Nature: <span> Full-time</span></li>
+                                <li>Vacancy: <span><%= job_profile.vacancy %></span></li>
+                                <li>Salary: <span><%= job_profile.salary %>k/y</span></li>
+                                <li>Location: <span><%= job_profile.location %></span></li>
+                                <li>Job Nature: <span> <%= job_profile.job_nature %></span></li>
                             </ul>
                         </div>
                     </div>
