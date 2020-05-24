@@ -41,6 +41,7 @@ router.post('/',(req,res) =>{
                 email: doc.email,
                 phone:doc.phone,
                 profession: doc.profession,
+                appliedJobs:doc.appliedJobs
                 //profileImage: doc.profileImage
             }
             res.render('profile',{user_details:details});
