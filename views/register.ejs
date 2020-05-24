@@ -64,7 +64,7 @@ body{
             */
             $.post("/auth/register",{email:email,pass:pass,username:username,cpass:cpass},function(data){
                 if(data==='done') {
-                    window.location.href="/";
+                    window.location.href="/index";
                 }
             });
         });
