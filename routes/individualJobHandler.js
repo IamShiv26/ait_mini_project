@@ -75,7 +75,12 @@ router.post('/upload' ,async(req,res) => {
                 res.render('index',{msg:"No file selected!!"});
             }
             else{
-                User.findOneAndUpdate({ _id: sess.userid }, {appliedJobs:{title : job_profile.job_title, cv_name : req.file.filename, coverletter : req.body.coverletter, portfolio_link : req.body.portfolio_link} }, {new : true}, (err,doc) => {
+                // User.findOneAndUpdate({ _id: sess.userid }, {appliedJobs:{title : job_profile.job_title, cv_name : req.file.filename, coverletter : req.body.coverletter, portfolio_link : req.body.portfolio_link} }, {new : true}, (err,doc) => {
+                //     if(err){
+                //         alert('Wrong Details!!!!');
+                //         }
+                // });
+                User.findOneAndUpdate({ _id: sess.userid },{ $addToSet : { appliedJobs : {title : job_profile.job_title, cv_name : req.file.filename, coverletter : req.body.coverletter, portfolio_link : req.body.portfolio_link } } }, {new : true}, (err,doc) => {
                     if(err){
                         alert('Wrong Details!!!!');
                         }

@@ -53,19 +53,19 @@
                                         <ul id="navigation">
                                             <li><a href="/index">home</a></li>
                                             <li><a href="/jobs">Browse Job</a></li>
-                                            <li><a href="#">pages <i class="ti-angle-down"></i></a>
+                                            <!-- <li><a href="#">pages <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
                                                     <li><a href="/candidate">Candidates </a></li>
                                                     <li><a href="/job_details">job details </a></li>
                                                     <li><a href="/elements">elements</a></li>
                                                 </ul>
-                                            </li>
-                                            <li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                            </li> -->
+                                            <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
                                                     <li><a href="/blog">blog</a></li>
                                                     <li><a href="/single-blog">single-blog</a></li>
                                                 </ul>
-                                            </li>
+                                            </li> -->
                                             <li><a href="/contact">Contact</a></li>
                                         </ul>
                                     </nav>
@@ -74,10 +74,13 @@
                             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                                 <div class="Appointment">
                                     <div class="phone_num d-none d-xl-block">
-                                        <a href="#">Log in</a>
+                                        <a href="/loginpage" id='login'>Log in</a>
+                                    </div>
+                                    <div class="phone_num d-none d-xl-block" >
+                                        <a href="/auth/logout" id='logout'>Log Out</a>
                                     </div>
                                     <div class="d-none d-lg-block">
-                                        <a class="boxed-btn3" href="#">Post a Job</a>
+                                        <a class="boxed-btn3" id="register" >Register</a>
                                     </div>
                                 </div>
                             </div>
@@ -405,6 +408,26 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
     <script src="js/main.js"></script>
+    <script>
+        const cookie = document.cookie;
+        console.log('Coo'+cookie);
+        if(cookie==="")
+        {
+            $('#logout').hide();
+            $('#login').show();
+            $('#register').show();
+            $('#register').html("register");
+            $("#register").attr("href", "/registerpage");
+            $('.apply').attr('onClick', "alert('Please Login !!!')");
+            $('.apply').attr('href', "#");
+        }
+        else{
+            $('#logout').show();
+            $('#login').hide();
+            $('#register').html("Profile");
+            $("#register").attr("href", "/profilepage");
+        }
+    </script>
 </body>
 
 </html>
