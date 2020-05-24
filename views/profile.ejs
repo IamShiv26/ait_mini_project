@@ -241,12 +241,10 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-work">
-                        <p>SKILLS</p>
-                        <a href="">Web Designer</a><br/>
-                        <a href="">Web Developer</a><br/>
-                        <a href="">WordPress</a><br/>
-                        <a href="">WooCommerce</a><br/>
-                        <a href="">PHP, .Net</a><br/>
+                        <p>Jobs Applied</p>
+                        <% for(var i=0; i < user_details.appliedJobs.length; i++) { %>
+                        <p><%= user_details.appliedJobs[i].title %></p>
+                        <% } %>
                     </div>
                 </div>
                 <div class="col-md-8">

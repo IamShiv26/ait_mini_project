@@ -8,14 +8,26 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/slicknav.css">
 <style type="text/css">
+body{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+}
 	.login-form {
 		width: 340px;
-    	margin: 50px auto;
+    	margin: 100px auto;
 	}
     .login-form form {
     	margin-bottom: 15px;
-        background: #f7f7f7;
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
         padding: 30px;
     }
@@ -31,27 +43,59 @@
         font-weight: bold;
     }
 </style>
-<script>
-    $(document).ready(function(){
-        var email,pass;
-        $("#submit").click(function(){
-            email=$("#email").val();
-            pass=$("#password").val();
-            /*
-            * Perform some validation here.
-            */
-            $.post("/auth/login",{email:email,pass:pass},function(data){
-                if(data==='done') {
-                    window.location.href="/index";
-                }
-            });
-        });
-    });
-    </script>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid ">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-2">
+                                <div class="logo">
+                                    <a href="/index">
+                                        <img src="img/logo.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-7">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/index">home</a></li>
+                                            <li><a href="/jobs">Browse Job</a></li>
+                                            <!-- <li><a href="#">pages <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a href="/candidate">Candidates </a></li>
+                                                    <li><a href="/job_details">job details </a></li>
+                                                    <li><a href="/elements">elements</a></li>
+                                                </ul>
+                                            </li> -->
+                                            <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a href="/blog/multi-blog">blog</a></li>
+                                                    <li><a href="/blog/single-blog">single-blog</a></li>
+                                                </ul>
+                                            </li> -->
+                                            <li><a href="/contact">Contact</a></li>
+                                            <!-- <li><a href="/">Facebook Login</a></li> -->
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
 <div class="login-form">
-        <h2 class="text-center">Log in</h2>       
+        <h2 class="text-center" style="color: white;">Log in</h2>       
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Email" required="required" name="email" id="email">
         </div>
@@ -59,9 +103,77 @@
             <input type="password" class="form-control" placeholder="Password" required="required" name="password" id="password">
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block" id="submit">Log in</button>
+            <button type="submit" class="btn btn-success btn-block" id="submit">Log in</button>
         </div>       
-    <p class="text-center"><a href="/register">Create an Account</a></p>
+    <p class="text-center" ><a style="color: white;" href="/registerpage">Create an Account</a></p>
 </div>
+<script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/scrollIt.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/gijgo.min.js"></script>
+
+
+
+    <!--contact js-->
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+
+
+    <script src="js/main.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var email,pass;
+            $("#submit").click(function(){
+                email=$("#email").val();
+                pass=$("#password").val();
+                /*
+                * Perform some validation here.
+                */
+                $.post("/auth/login",{email:email,pass:pass},function(data){
+                    if(data==='done') {
+                        console.log("dfsdfdfsd");
+                        window.location.href="/index";
+                    }
+                });
+            });
+        });
+        </script>
+    <!-- <script>
+        const cookie = document.cookie;
+        console.log('Coo'+cookie);
+        if(cookie==="")
+        {
+            $('#logout').hide();
+            $('#login').show();
+            $('#register').show();
+            $('#register').html("register");
+            $("#register").attr("href", "/registerpage");
+        }
+        else{
+            $('#logout').show();
+            $('#login').hide();
+            $('#register').html("Profile");
+            $("#register").attr("href", "/profilepage");
+        }
+    </script> -->
+
 </body>
 </html>                                		                            

@@ -14,15 +14,22 @@ var sess;
 
 router.get('/',async(req,res) => {
     var jobs = await Job.find().exec();
-    sess = req.session;
-    var appliedJobs;
-    if(sess.email) {
-    var user_profile = await User.findById(sess.userid).exec();
-    appliedJobs = user_profile.appliedJobs;
-    }
+    // sess = req.session;
+    // var user_profile = await User.findById(sess.userid).exec();
+    // var appliedJobs = user_profile.appliedJobs;
     // console.log(appliedJobs);
-    console.log(req.cookies.email);
-    res.render('jobs',{jobs:jobs,appliedJobs:appliedJobs,cookie:req.cookies.email});
+    // console.log(jobs)
+    // res.cookie("email","");
+    res.render('index',{jobs:jobs});
+});
+router.get('/index',async(req,res) => {
+    var jobs = await Job.find().exec();
+    // sess = req.session;
+    // var user_profile = await User.findById(sess.userid).exec();
+    // var appliedJobs = user_profile.appliedJobs;
+    // console.log(appliedJobs);
+    // console.log(jobs)
+    res.render('index',{jobs:jobs});
 });
 
 module.exports = router;

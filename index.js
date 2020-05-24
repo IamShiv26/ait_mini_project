@@ -28,10 +28,7 @@ app.use('/jobHandler', require('./routes/jobHandler'));
 app.use('/job_details',require('./routes/individualJobHandler'));
 
 
-app.get('/index', (req, res) => {
-    // console.log(path.join(__dirname, 'public','index.html'));
-    res.status(200).sendFile(path.join(__dirname, 'public','index.html'));
-})
+app.use('/', require("./routes/index1"));
 
 
 app.get('/candidate', (req, res) => {

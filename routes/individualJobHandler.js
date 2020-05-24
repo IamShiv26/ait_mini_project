@@ -69,9 +69,6 @@ router.post('/upload' ,async(req,res) => {
         // console.log(req.file.filename);
         if(err){
             res.send(500,'showAlert');
-            //jsalert.alert('Only pdf, doc and docx format allowed!!!!');
-            //res.redirect("/job_details?id="+id);
-            //res.render('job_details',{job_profile:job_profile, user_profile:user_profile,msg:err});
         }
         else{
             if(req.file == undefined)
