@@ -11,6 +11,7 @@ const User = mongoose.model('user');
 const multer = require('multer');
 const fs = require('fs');
 var url = require('url');
+var jsalert = require('js-alert');
 var sess;
 var id;
 const storage = multer.diskStorage({
@@ -63,11 +64,14 @@ router.post('/upload' ,async(req,res) => {
     sess = req.session;
     console.log(id);
     var job_profile = await Job.findById(id).exec();
+    // var user_profile = await User.findById(sess.userid).exec();
     upload(req,res,(err)=>{
         // console.log(req.file.filename);
         if(err){
-            console.log("Erroroorororo");
-            res.render('job_details'+"?id="+id,{msg:err});
+            res.send(500,'showAlert');
+            //jsalert.alert('Only pdf, doc and docx format allowed!!!!');
+            //res.redirect("/job_details?id="+id);
+            //res.render('job_details',{job_profile:job_profile, user_profile:user_profile,msg:err});
         }
         else{
             if(req.file == undefined)
@@ -80,12 +84,18 @@ router.post('/upload' ,async(req,res) => {
                 //         alert('Wrong Details!!!!');
                 //         }
                 // });
+                console.log(req.body.coverletter,req.body.portfolio_link);
                 User.findOneAndUpdate({ _id: sess.userid },{ $addToSet : { appliedJobs : {title : job_profile.job_title, cv_name : req.file.filename, coverletter : req.body.coverletter, portfolio_link : req.body.portfolio_link } } }, {new : true}, (err,doc) => {
                     if(err){
                         alert('Wrong Details!!!!');
-                        }
+                    }
                 });
-                res.redirect('/jobs');
+                Job.findOneAndUpdate({ _id: id}, { $inc : { vacancy : -1 } }, (err,doc) => {
+                    if(err)
+                        console.log(err);
+                });
+                // res.redirect('/jobs');
+                res.send(200);
             }
         }
     });
